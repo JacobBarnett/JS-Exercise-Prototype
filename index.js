@@ -7,6 +7,8 @@
         + If a plane lands, its `isFlying` property is set to false.
 */
 
+const { USERWHITESPACABLE_TYPES } = require("@babel/types");
+
 // EXAMPLE SOLUTION CODE:
 function Airplane(name) {
   this.name = name;
@@ -39,14 +41,25 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-  
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
 }
 
+Person.prototype.eat = function(edible){
+  if(this.stomach.length < 10){
+    this.stomach.push(edible);
+  }
+}
 
+Person.prototype.poop = function() {
+  this.stomach = [];
+}
 
-
-
+Person.prototype.twoString = function() {
+  return `${this.name}, ${this.age}`;
+}
 
 
 /*
